@@ -18,9 +18,7 @@ func (s *MemoryStore) GetTopic(id string) (*model.Topic, error) {
 	if !ok {
 		return nil, ErrNotFound
 	}
-	c := *t
-	c.ViewCount = 0
-	return &c, nil
+	return t, nil
 }
 
 // ListTopics 返回全部主题。
