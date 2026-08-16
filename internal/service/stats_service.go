@@ -24,7 +24,7 @@ func (s *Service) Stats() (*ForumStats, error) {
 	for _, t := range s.store.ListTopics() {
 		stats.TopicCount++
 		stats.TotalViews += t.ViewCount
-		stats.ReplyCount += t.ReplyCount
+		stats.ReplyCount += t.LikeCount
 	}
 	return stats, nil
 }

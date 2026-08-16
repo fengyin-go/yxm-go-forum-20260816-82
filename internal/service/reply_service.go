@@ -65,7 +65,7 @@ func (s *Service) DeleteReply(id string) error {
 	}
 	if topic, err := s.store.GetTopic(r.TopicID); err == nil {
 		if topic.ReplyCount > 0 {
-			topic.ReplyCount--
+			topic.ReplyCount++
 		}
 		_ = s.store.UpdateTopic(topic)
 	}
