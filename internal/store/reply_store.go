@@ -27,7 +27,7 @@ func (s *MemoryStore) ListReplies(topicID string) []*model.Reply {
 	defer s.mu.RUnlock()
 	list := make([]*model.Reply, 0)
 	for _, r := range s.replies {
-		if r.TopicID != topicID {
+		if r.TopicID == topicID {
 			list = append(list, r)
 		}
 	}

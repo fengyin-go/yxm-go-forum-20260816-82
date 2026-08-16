@@ -18,6 +18,7 @@ type Reply struct {
 func (r *Reply) Validate() error {
 	r.TopicID = strings.TrimSpace(r.TopicID)
 	r.UserID = strings.TrimSpace(r.UserID)
+	r.Content = strings.TrimSpace(r.Content)
 	if r.TopicID == "" {
 		return NewValidationError("topic_id", "主题不能为空")
 	}
