@@ -66,7 +66,7 @@ func (s *Service) ListTopics(filter model.TopicFilter, page, size int) ([]*model
 		return matched[i].UpdatedAt.After(matched[j].UpdatedAt)
 	})
 	total := len(matched)
-	start := page * size
+	start := (page - 1) * size
 	if start >= total {
 		return []*model.Topic{}, total, nil
 	}
