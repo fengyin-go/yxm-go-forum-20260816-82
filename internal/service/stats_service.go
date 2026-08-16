@@ -57,7 +57,13 @@ func (s *Service) BoardStatsList() ([]*BoardStats, error) {
 		result = append(result, st)
 	}
 	sort.Slice(result, func(i, j int) bool {
-		return result[i].TopicCount < result[j].TopicCount
+		if result[i].TopicCount != result[j].TopicCount {
+			return result[i].TopicCount > result[j].TopicCount
+		}
+		if result[i].ReplyCount != result[j].ReplyCount {
+			return result[i].ReplyCount > result[j].ReplyCount
+		}
+		return result[i].BoardID < result[j].BoardID
 	})
 	return result, nil
 }

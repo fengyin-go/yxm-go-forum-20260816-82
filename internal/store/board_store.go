@@ -2,12 +2,12 @@ package store
 
 import "forum/internal/model"
 
-// CreateBoard 新增版块，名称重复时返回 ErrConflict。
+// CreateBoard 新增版块，ID 或名称重复时返回 ErrConflict。
 func (s *MemoryStore) CreateBoard(b *model.Board) error {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	for _, exist := range s.boards {
-		if exist.ID == b.ID {
+		if exist.ID == b.ID || exist.Name == b.Name {
 			return ErrConflict
 		}
 	}
