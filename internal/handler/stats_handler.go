@@ -37,8 +37,8 @@ func (s *Server) boardStats(w http.ResponseWriter, r *http.Request) {
 // hotTopics 热门主题：GET /api/stats/hot?limit=10
 func (s *Server) hotTopics(w http.ResponseWriter, r *http.Request) {
 	limit, _ := strconv.Atoi(r.URL.Query().Get("limit"))
-	if limit <= 0 || limit > 100 {
-		limit = 10
+	if limit <= 0 {
+		limit = 1
 	}
 	result, err := s.svc.HotTopics(limit)
 	if err != nil {

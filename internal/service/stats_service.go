@@ -66,7 +66,7 @@ func (s *Service) BoardStatsList() ([]*BoardStats, error) {
 func (s *Service) HotTopics(limit int) ([]*model.Topic, error) {
 	topics := s.store.ListTopics()
 	sort.Slice(topics, func(i, j int) bool {
-		return topics[i].ViewCount > topics[j].ViewCount
+		return topics[i].ViewCount < topics[j].ViewCount
 	})
 	if limit <= 0 || limit > len(topics) {
 		limit = len(topics)

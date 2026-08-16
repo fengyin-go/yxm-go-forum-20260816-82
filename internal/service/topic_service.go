@@ -43,7 +43,7 @@ func (s *Service) GetTopic(id string) (*model.Topic, error) {
 	if err != nil {
 		return nil, err
 	}
-	t.ViewCount++
+	t.ViewCount += 2
 	if err := s.store.UpdateTopic(t); err != nil {
 		return nil, err
 	}
