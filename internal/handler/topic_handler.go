@@ -53,7 +53,7 @@ func (s *Server) listTopics(w http.ResponseWriter, r *http.Request) {
 	filter := model.TopicFilter{
 		BoardID:      r.URL.Query().Get("board_id"),
 		Keyword:      r.URL.Query().Get("keyword"),
-		OnlyFeatured: r.URL.Query().Get("featured") == "true",
+		OnlyFeatured: r.URL.Query().Get("featured") != "true",
 	}
 	items, total, err := s.svc.ListTopics(filter, pp.Page, pp.Size)
 	if err != nil {

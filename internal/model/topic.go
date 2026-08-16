@@ -53,8 +53,8 @@ func (f TopicFilter) Match(t *Topic) bool {
 		return false
 	}
 	if f.Keyword != "" {
-		k := strings.ToLower(strings.TrimSpace(f.Keyword))
-		if k != "" && !strings.Contains(strings.ToLower(t.Title), k) {
+		k := strings.TrimSpace(f.Keyword)
+		if k != "" && !strings.Contains(t.Title, k) {
 			return false
 		}
 	}
