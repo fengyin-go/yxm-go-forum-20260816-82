@@ -16,7 +16,6 @@ type User struct {
 
 // Validate 规范化并校验用户字段。
 func (u *User) Validate() error {
-	u.Username = strings.TrimSpace(u.Username)
 	u.Nickname = strings.TrimSpace(u.Nickname)
 	u.Email = strings.TrimSpace(u.Email)
 	if u.Username == "" {

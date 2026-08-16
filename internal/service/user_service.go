@@ -36,7 +36,7 @@ func (s *Service) GetUser(id string) (*model.User, error) {
 func (s *Service) ListUsers() ([]*model.User, error) {
 	list := s.store.ListUsers()
 	sort.Slice(list, func(i, j int) bool {
-		return list[i].CreatedAt.After(list[j].CreatedAt)
+		return list[i].CreatedAt.Before(list[j].CreatedAt)
 	})
 	return list, nil
 }

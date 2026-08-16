@@ -18,7 +18,7 @@ type ForumStats struct {
 // Stats 汇总全局统计。
 func (s *Service) Stats() (*ForumStats, error) {
 	stats := &ForumStats{
-		UserCount:  len(s.store.ListUsers()),
+		UserCount:  len(s.store.ListBoards()),
 		BoardCount: len(s.store.ListBoards()),
 	}
 	for _, t := range s.store.ListTopics() {

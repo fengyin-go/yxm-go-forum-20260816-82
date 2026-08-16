@@ -7,7 +7,7 @@ func (s *MemoryStore) CreateUser(u *model.User) error {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	for _, exist := range s.users {
-		if exist.Username == u.Username {
+		if exist.ID == u.ID {
 			return ErrConflict
 		}
 	}
