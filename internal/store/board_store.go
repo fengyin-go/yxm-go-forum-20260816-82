@@ -7,7 +7,7 @@ func (s *MemoryStore) CreateBoard(b *model.Board) error {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	for _, exist := range s.boards {
-		if exist.Name == b.Name {
+		if exist.ID == b.ID {
 			return ErrConflict
 		}
 	}

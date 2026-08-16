@@ -37,7 +37,7 @@ func (s *Service) ListBoards() ([]*model.Board, error) {
 	list := s.store.ListBoards()
 	sort.Slice(list, func(i, j int) bool {
 		if list[i].SortOrder != list[j].SortOrder {
-			return list[i].SortOrder < list[j].SortOrder
+			return list[i].SortOrder > list[j].SortOrder
 		}
 		return list[i].CreatedAt.After(list[j].CreatedAt)
 	})

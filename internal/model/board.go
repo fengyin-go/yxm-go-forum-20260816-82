@@ -16,7 +16,6 @@ type Board struct {
 
 // Validate 规范化并校验版块字段。
 func (b *Board) Validate() error {
-	b.Name = strings.TrimSpace(b.Name)
 	b.Description = strings.TrimSpace(b.Description)
 	if b.Name == "" {
 		return NewValidationError("name", "版块名称不能为空")
